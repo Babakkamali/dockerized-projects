@@ -22,12 +22,13 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
 # Start a new stage from scratch
 FROM alpine:3.19.1 
-RUN apk add --no-cache ca-certificates curl
+RUN apk add --no-cache ca-certificates curl tzdata
 
 WORKDIR /root/
 
 ARG ENV_FILE=.env.prod
 ENV ENV_FILE=${ENV_FILE}
+ENV TZ=Asia/Tehran
 
 # Copy the Pre-built binary file from the previous stage. Also copy config yml file
 COPY --from=builder /app/main .
