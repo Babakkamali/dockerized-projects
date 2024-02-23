@@ -14,7 +14,7 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 
-FROM php:8.2.6-fpm
+FROM php:8.3.3-fpm-bullseye
 
 ARG ENV_FILE=.env.prod
 ENV ENV_FILE=${ENV_FILE}
