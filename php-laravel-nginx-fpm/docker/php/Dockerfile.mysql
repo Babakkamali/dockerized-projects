@@ -39,7 +39,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 COPY --from=vendor /app/vendor/ /var/www/html/vendor/
 
-COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
+COPY ./docker/php/php.ini.mysql /usr/local/etc/php/php.ini
 COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 COPY $ENV_FILE ./.env
 
