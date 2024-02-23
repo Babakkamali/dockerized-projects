@@ -9,7 +9,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.18/main" > /etc/apk/repositor
 
 # Install required packages
 RUN apk update && \
-    apk add --no-cache pkgconfig mysql-dev curl-dev python3-dev cairo-dev build-base && \
+    apk add --no-cache pkgconfig mysql-dev curl-dev python3-dev cairo-dev build-base tzdata && \
     rm -rf /var/cache/apk/*
 
 # Set environment variables, pip configuration and pip local repo
@@ -28,6 +28,8 @@ COPY . /app
 
 ARG APP_ENV=production
 ENV APP_ENV=${APP_ENV}
+
+ENV TZ=Asia/Tehran
 
 COPY $ENV_FILE ./.env
 
