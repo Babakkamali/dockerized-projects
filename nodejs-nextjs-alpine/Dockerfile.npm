@@ -6,10 +6,15 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 FROM node:20-alpine AS builder
+
 ARG ENV_FILE=.env.prod
+ENV ENV_FILE=${ENV_FILE}
+
 WORKDIR /app
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
 COPY $ENV_FILE ./.env
 
 ENV NEXT_TELEMETRY_DISABLED 1
