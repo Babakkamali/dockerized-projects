@@ -57,7 +57,7 @@ ENV TZ=Asia/Tehran
 COPY --from=builder /app/static /usr/share/nginx/html/static
 
 # Add your Nginx configuration here
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
