@@ -20,6 +20,7 @@ RUN ng build --configuration=$VENDOR_NAME --outputHashing=all
 
 FROM nginx:mainline-alpine3.18-slim AS runner
 
-COPY --from=builder /app/dist/ngx-oipf /usr/share/nginx/html
+COPY --from=builder /app/dist/built-foldername /usr/share/nginx/html
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
