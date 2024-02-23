@@ -29,15 +29,15 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libxml2-dev \
     libssl-dev \
-     libpng-dev \
-        libjpeg-dev \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libmcrypt-dev \
-        libgd-dev \
-      jpegoptim optipng pngquant gifsicle \
-        libonig-dev \
-        libxml2-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libgd-dev \
+    jpegoptim optipng pngquant gifsicle \
+    libonig-dev \
+    libxml2-dev \
     g++ \
     curl \
     wget \
@@ -87,7 +87,7 @@ COPY $ENV_FILE ./.env
 RUN #composer install --ignore-platform-reqs
 
 #RUN chown -R www-data:www-data .
-Run chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html
 RUN docker-php-ext-install soap && docker-php-ext-enable soap
 
 
