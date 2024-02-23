@@ -58,7 +58,7 @@ ENV ENV_FILE=${ENV_FILE}
 
 #
 RUN docker-php-ext-configure pcntl --enable-pcntl \
-  && docker-php-ext-install \
+    && docker-php-ext-install \
     pcntl
 #
 
