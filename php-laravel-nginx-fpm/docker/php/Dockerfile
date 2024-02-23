@@ -14,7 +14,7 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 
-FROM php:8.3.3-fpm-bullseye
+FROM php:8.3.3-fpm-bookworm
 
 ARG ENV_FILE=.env.prod
 ENV ENV_FILE=${ENV_FILE}
@@ -38,8 +38,6 @@ WORKDIR /var/www/html
 
 COPY . /var/www/html
 COPY --from=vendor /app/vendor/ /var/www/html/vendor/
-
-RUN rm -rf /var/www/html/public/storage
 
 COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
 COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
