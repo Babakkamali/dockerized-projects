@@ -1,5 +1,9 @@
 FROM nginx:alpine
 
+RUN apk add --no-cache tzdata
+
+ENV TZ=Asia/Tehran
+
 # Set working directory
 WORKDIR /var/www/html/
 

@@ -49,6 +49,10 @@ CMD ["python3", "/app/manage.py", "runserver", "0.0.0.0:8000"]
 # Stage 2: Setting up Nginx to serve static files
 FROM nginx:1.25.3-alpine-slim AS nginx
 
+RUN apk add --no-cache tzdata
+
+ENV TZ=Asia/Tehran
+
 # Copy static files from builder stage
 COPY --from=builder /app/static /usr/share/nginx/html/static
 
