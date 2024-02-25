@@ -21,6 +21,7 @@ ENV ENV_FILE=${ENV_FILE}
 
 RUN apt-get update && apt-get install -y \
     build-essential \
+    libfcgi0ldbl \
     libpng-dev \
     libonig-dev \
     libjpeg62-turbo-dev \
